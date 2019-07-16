@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -41,6 +42,7 @@ class QuestionController extends Controller
         ]);
         $question = new Question([
             'question_text' => $request->get('question_text'),
+            'answers' => [],
         ]);
         $question->save();
 
