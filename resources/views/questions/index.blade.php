@@ -6,7 +6,7 @@
       @csrf
       <div class="form-inline">
         <textarea type="text" class="form-control" name="question_text" placeholder="{{ $placeholder_questions[array_rand($placeholder_questions)] }}">{{ old('question_text') }}</textarea>
-          <button style="margin: 19px;" class="btn btn-primary" type="submit">Submit question</button>
+          <button class="btn btn-primary m-3" type="submit">Submit question</button>
       </div>
     </form>
   </div>
@@ -15,7 +15,7 @@
           <small><font color="red">{{ $error }}</font></small>
       @endforeach
   @endif
-  <div class="row" style="margin-top:20px">
+  <div class="row mt-3">
     <table class="table">
       <thead>
         <tr>

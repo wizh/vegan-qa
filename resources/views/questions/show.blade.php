@@ -23,8 +23,8 @@
         @method('PATCH')
         @csrf
         <div class="form-inline">
-          <textarea type="text" class="form-control" name="answer_text">{{ old('answer_text') }}</textarea>
-            <button style="margin: 19px;" class="btn btn-primary" type="submit">Submit answer</button>
+          <textarea type="text" class="form-control" name="answer_text" placeholder="Write your answer here">{{ old('answer_text') }}</textarea>
+            <button class="btn btn-primary m-3" type="submit">Submit answer</button>
         </div>
       </form>
     </div>
