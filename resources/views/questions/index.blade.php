@@ -10,6 +10,11 @@
       </div>
     </form>
   </div>
+  @if ($errors->any())
+      @foreach ($errors->all() as $error)
+          <small><font color="red">{{ $error }}</font></small>
+      @endforeach
+  @endif
   <div class="row" style="margin-top:20px">
     <table class="table">
       <thead>

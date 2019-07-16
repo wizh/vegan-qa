@@ -28,5 +28,10 @@
         </div>
       </form>
     </div>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <small><font color="red">{{ $error }}</font></small>
+        @endforeach
+    @endif
 </div>
 @endsection
