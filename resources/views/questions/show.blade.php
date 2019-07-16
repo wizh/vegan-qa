@@ -18,5 +18,15 @@
         </tbody>
       </table>
     </div>
+    <div class="row">
+      <form method="post" action="{{ route('questions.update', $question->id) }}">
+        @method('PATCH')
+        @csrf
+        <div class="form-inline">
+          <textarea type="text" class="form-control" name="answer_text"></textarea>
+            <button style="margin: 19px;" class="btn btn-primary" type="submit">Submit answer</button>
+        </div>
+      </form>
+    </div>
 </div>
 @endsection

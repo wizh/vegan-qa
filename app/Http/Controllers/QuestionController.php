@@ -81,7 +81,17 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'answer_text' => ['required','min:5'],
+        ]);
+
+        $question = Question::where('id', $id)->first();
+        $original_answers = $question->answers;
+        array_push($original_answers, $request->answer_text);
+        $question->answers = $original_answers;
+        $question->save();
+
+        return redirect('/questions/'.$id)->with('success', 'Answer saved!');
     }
 
     /**
