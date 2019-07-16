@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Question;
+
+use View;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+    private static $placeholder_questions = array(
+        "Where do you get your protein?",
+        "Do you ever miss meat?",
+        "What do you eat?"
+    );
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +24,10 @@ class QuestionController extends Controller
     {
         $questions = Question::all();
 
-        return view('questions.index', compact('questions'));
+        return View::make("questions.index")->with(array(
+            'questions' => $questions,
+            'placeholder_questions' => self::$placeholder_questions
+        ));
     }
 
     /**
