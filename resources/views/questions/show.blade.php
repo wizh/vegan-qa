@@ -1,7 +1,7 @@
 @extends('base')
 @section('content')
 <div class="container">
-    <h1 class="display-4 text-center">{{$question->question_text}}</h1>
+    <h1 class="display-4 text-justify">{{$question->question_text}}</h1>
     <div class="row">
       <table class="table">
         <thead>
