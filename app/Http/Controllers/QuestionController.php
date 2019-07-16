@@ -13,7 +13,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all();
+
+        return view('questions.index', compact('questions'));
     }
 
     /**
@@ -34,7 +36,15 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'question_text' => ['required','min:5','endsWith:?'],
+        ]);
+        $question = new Question([
+            'question_text' => $request->get('question_text'),
+        ]);
+        $question->save();
+
+        return redirect('/')->with('success', 'Question saved!');
     }
 
     /**
@@ -45,7 +55,8 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        $question = Question::find($id);
+        return view('questions.show', compact('question'));
     }
 
     /**
