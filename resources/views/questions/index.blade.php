@@ -5,7 +5,7 @@
     <form method="post" action="{{ route('questions.store') }}">
       @csrf
       <div class="form-inline">
-        <textarea type="text" class="form-control" name="question_text"></textarea>
+        <textarea type="text" class="form-control" name="question_text">{{ old('question_text') }}</textarea>
           <button style="margin: 19px;" class="btn btn-primary" type="submit">Submit question</button>
       </div>
     </form>
